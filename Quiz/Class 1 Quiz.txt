@@ -1,0 +1,209 @@
+What is the primary purpose of a supply chain?
+a) To satisfy the customer's needs
+b) To generate profit for the suppliers
+c) To reduce costs for manufacturers
+d) To manage transportation logistics
+Answer: a) To satisfy the customer's needs
+
+Which of the following is NOT a key function of a supply chain?
+a) Marketing
+b) Research and Development
+c) Finance
+d) Distribution
+Answer: b) Research and Development
+
+In a supply chain, which stage directly fulfills a customer’s request?
+a) Manufacturer
+b) Supplier
+c) Retailer
+d) Distributor
+Answer: c) Retailer
+
+In the example of Walmart's supply chain, which of the following entities provides product, pricing, and availability information to the customer?
+a) Distributor
+b) Manufacturer
+c) Retailer (Walmart)
+d) Supplier
+Answer: c) Retailer (Walmart)
+
+Which of the following is the correct order of stages in the detergent supply chain from customer to supplier?
+a) Customer → Walmart → Distributor → Manufacturer → Suppliers
+b) Manufacturer → Supplier → Distributor → Walmart → Customer
+c) Supplier → Distributor → Walmart → Manufacturer → Customer
+d) Customer → Manufacturer → Walmart → Distributor → Supplier
+Answer: a) Customer → Walmart → Distributor → Manufacturer → Suppliers
+
+What kind of flow is NOT typically involved in a supply chain?
+a) Product flow
+b) Information flow
+c) Fund flow
+d) Labor flow
+Answer: d) Labor flow
+
+What is the primary difference between Dell’s supply chains for its server business and consumer products?
+a) The server business includes more stages than consumer products
+b) For consumer products, Dell sells through retailers, while for servers, it builds to order
+c) The server business uses wholesalers, while the consumer business does not
+d) Both business models are identical in terms of stages
+Answer: b) For consumer products, Dell sells through retailers, while for servers, it builds to order
+
+In the context of supply chains, what does the term "recycling" refer to?
+a) Returning unsold products back to manufacturers
+b) The process of returning packaging material for reuse
+c) Returning raw materials to suppliers
+d) Distributing leftover inventory to other retailers
+Answer: b) The process of returning packaging material for reuse
+
+What is the role of distributors in the supply chain?
+a) To manufacture products
+b) To retail products to end customers
+c) To provide raw materials to manufacturers
+d) To supply products to retailers or other customers
+Answer: d) To supply products to retailers or other customers
+
+How are supply chains best visualized?
+a) As linear chains
+b) As networks or webs
+c) As hierarchical structures
+d) As isolated stages
+Answer: b) As networks or webs
+
+What is the primary objective of a supply chain?
+A) To reduce customer costs
+B) To maximize the overall value generated
+C) To manage logistics
+D) To optimize marketing strategies
+Answer: B) To maximize the overall value generated
+
+What is the formula for calculating supply chain surplus?
+A) Customer Value - Supply Chain Cost
+B) Supply Chain Cost - Revenue
+C) Revenue - Manufacturing Cost
+D) Customer Demand - Product Availability
+Answer: A) Customer Value - Supply Chain Cost
+
+What does supply chain surplus represent?
+A) The difference between product cost and final product price
+B) The difference between revenue and total cost across the supply chain
+C) The total profit made by the manufacturer
+D) The total cost incurred in product development
+Answer: B) The difference between revenue and total cost across the supply chain
+
+Which of the following best describes the role of distributors in the supply chain?
+A) Handle marketing and advertising of products
+B) Provide the final products directly to the customer
+C) Help reduce transportation costs by making smaller deliveries to retailers
+D) Manufacture the products
+Answer: C) Help reduce transportation costs by making smaller deliveries to retailers
+
+What is one key factor that impacts the value obtained by a customer in a supply chain?
+A) The length of the supply chain
+B) The availability of product and functionality
+C) The number of supply chain stages
+D) The financial health of the manufacturer
+Answer: B) The availability of product and functionality
+
+What is the goal of supply chain profitability?
+A) To increase the customer base
+B) To ensure products are available at the lowest cost possible
+C) To maximize supply chain surplus
+D) To provide better transportation infrastructure
+Answer: C) To maximize supply chain surplus
+
+Which company used a responsive replenishment system to ensure product availability?
+A) Webvan
+B) Borders
+C) Seven-Eleven Japan
+D) Dell
+Answer: C) Seven-Eleven Japan
+
+What was a key factor in Webvan's failure?
+A) Over-expansion of warehouses and home delivery service
+B) Lack of transportation infrastructure
+C) Poor product selection
+D) Inefficient marketing strategies
+Answer: A) Over-expansion of warehouses and home delivery service
+
+In the context of supply chain decision phases, which phase involves handling individual customer orders?
+A) Supply Chain Strategy or Design
+B) Supply Chain Planning
+C) Supply Chain Operation
+D) Supply Chain Execution
+Answer: C) Supply Chain Operation
+
+What is the primary objective during the Supply Chain Strategy or Design phase?
+A) Maximize the use of existing resources
+B) Determine the structure and allocation of resources across the supply chain
+C) Minimize transportation costs
+D) Focus on short-term goals and objectives
+Answer: B) Determine the structure and allocation of resources across the supply chain
+
+What is the primary goal of a supply chain?
+A) To generate profit
+B) To fill a customer need for a product
+C) To maintain inventory
+D) To forecast demand accurately
+Answer: B) To fill a customer need for a product
+
+Which of the following is NOT one of the views of supply chain processes?
+A) Cycle View
+B) Push/Pull View
+C) Profit View
+D) Both A and B
+Answer: C) Profit View
+
+How many process cycles are identified in the Cycle View of Supply Chain Processes?
+A) Two
+B) Three
+C) Four
+D) Five
+Answer: C) Four
+
+Which of the following is NOT one of the four process cycles in the Cycle View?
+A) Customer Order Cycle
+B) Replenishment Cycle
+C) Manufacturing Cycle
+D) Forecast Cycle
+Answer: D) Forecast Cycle
+
+In which supply chain cycle are products ordered from suppliers?
+A) Procurement Cycle
+B) Manufacturing Cycle
+C) Replenishment Cycle
+D) Customer Order Cycle
+Answer: A) Procurement Cycle
+
+What defines a "Pull Process" in a supply chain?
+A) Initiated in response to a customer order
+B) Executed based on a forecast
+C) Done in anticipation of a future order
+D) Done before a customer order is placed
+Answer: A) Initiated in response to a customer order
+
+Which of the following is an example of a "Push Process"?
+A) Manufacturing customized products based on customer orders
+B) Replenishing inventory based on forecasted demand
+C) Processing orders as soon as they are placed
+D) Responding to real-time customer needs
+Answer: B) Replenishing inventory based on forecasted demand
+
+In the Push/Pull View of Supply Chain Processes, what separates push processes from pull processes?
+A) Supplier relationships
+B) Customer demand knowledge
+C) Order size
+D) Lead times
+Answer: B) Customer demand knowledge
+
+What is the key feature of an "Integrated" supply chain?
+A) Independent functioning of departments
+B) Multiple suppliers and manufacturers
+C) Coordination among CRM, ISCM, and SRM processes
+D) Focus on customer acquisition
+Answer: C) Coordination among CRM, ISCM, and SRM processes
+
+What is the goal of the Internal Supply Chain Management (ISCM) process?
+A) To evaluate customer relationships
+B) To generate demand for products
+C) To fulfill demand generated by the CRM process
+D) To select suppliers for goods and services
+Answer: C) To fulfill demand generated by the CRM process
