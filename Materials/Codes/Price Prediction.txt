@@ -1,0 +1,186 @@
+import numpy as np
+import pandas as pd
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load data
+
+train = pd.read_csv('train_final.csv', index_col = 0)
+train.head()
+
+train.columns
+
+## Feature scaling and normalisation
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+X = train.drop('cost', axis=1)
+y = train.cost
+
+# Log transform skewed features
+col_list = ['annual_usage', 'min_order_quantity','quantity', 
+            'diameter', 'wall', 'length','num_bends', 
+            'bend_radius', 'num_boss', 'num_bracket', 'other',
+            'year', 'month', 'dayofyear', 'dayofweek', 'day', 
+            'component_id_1', 'quantity_1', 'component_id_2', 
+            'quantity_2', 'component_id_3', 'quantity_3', 
+            'component_id_4', 'quantity_4', 'component_id_5',
+            'quantity_5', 'component_id_6', 'quantity_6', 
+            'component_id_7','quantity_7', 'component_id_8', 
+            'quantity_8', 'Total_quantity', 'Total_weight']
+            
+for col_name in col_list:
+    X[col_name] = np.log1p(X[col_name])
+
+y = np.log1p(y)
+
+# Split train into train and validate sets
+X_train, X_valid, y_train, y_valid = train_test_split(
+    X, y, test_size=0.2, random_state=42)
+
+## Model Training
+from sklearn.ensemble import RandomForestRegressor, ExtraTreesRegressor
+from sklearn.metrics import mean_squared_error 
+
+rfr = RandomForestRegressor(n_estimators=300, random_state=42)
+
+rfr.fit(X_train, y_train)
+y_pred_rfr = rfr.predict(X_valid)
+
+## Evaluation with Root Mean Squared Logarithmic Error (RMSLE)
+def rmsle(yhat, y):
+    '''
+       We can import mean_squared_log_error (MSLE), but recall that 
+       we have already log1p transformed y before we split the data
+    '''
+    return np.sqrt(mean_squared_error(yhat, y))
+
+error = rmsle(y_pred_rfr, y_valid)
+# Print the error:
+print("RMSLE: %.4f" % error)
+
+etr = ExtraTreesRegressor(n_estimators=300, random_state=42)
+
+etr.fit(X_train, y_train)
+y_pred_etr = etr.predict(X_valid)
+
+error = rmsle(y_pred_etr, y_valid)
+# Print the error:
+print("RMSLE: %.4f" % error)
+
+### Cross-validation
+# Evaluate models using cross-validation
+from sklearn.model_selection import cross_val_score
+
+score_rfr = cross_val_score(rfr, X, y, scoring='neg_mean_squared_error', cv=5)
+
+rmsle_score = np.sqrt(-score_rfr)
+
+print("RMSLE:", rmsle_score)
+print("Mean:", rmsle_score.mean())
+print("Standard deviation:", rmsle_score.std())
+
+# Now, let's try the ExtraTreeRegressor
+score_etr = cross_val_score(etr, X, y, scoring='neg_mean_squared_error', cv=5)
+
+rmsle_score = np.sqrt(-score_etr)
+
+print("RMSLE:", rmsle_score)
+print("Mean:", rmsle_score.mean())
+print("Standard deviation:", rmsle_score.std())
+
+### Model Fine-tuning
+# Warning: It took extremely long time to run the following model
+
+# from sklearn.model_selection import GridSearchCV
+
+# params = {'n_estimators': [300, 600, 800, 1000],
+#           'max_depth': [None, 4, 6, 8, 10, 15, 20],
+#           'max_features': ['auto', 'sqrt', 'log2'],
+#           'min_samples_leaf': [2, 4, 6, 8],
+#           'min_samples_split': [2, 4, 6, 8],
+#           'bootstrap': [True, False] }
+    
+# etr = ExtraTreesRegressor(random_state=42)
+
+# grid_search = GridSearchCV(etr, param_grid=params, cv=5,
+#                          scoring ='neg_mean_squared_error')
+
+# grid_search.fit(X_train, y_train)
+
+# grid_search.best_estimator_
+
+# Copy the best parameters and make prediction on valid data.
+
+xtra = ExtraTreesRegressor(bootstrap=False, criterion='mse', max_depth=None,
+                    max_features='auto', max_leaf_nodes=None,
+                    min_impurity_decrease=0.0, min_impurity_split=None,
+                    min_samples_leaf=2, min_samples_split=2,
+                    min_weight_fraction_leaf=0.0, n_estimators=1000,
+                    n_jobs=None, oob_score=False, random_state=42, verbose=0,
+                    warm_start=False)
+
+xtra.fit(X_train, y_train)
+y_pred_xtra = xtra.predict(X_valid)
+
+error = rmsle(y_pred_xtra, y_valid)
+# Print the error:
+print("RMSLE: %.4f" % error)
+
+# Plot feature importance
+feature_rank = pd.Series(xtra.feature_importances_, index=X_train.columns)
+
+plt.figure(figsize=(8,8))
+feature_rank.nlargest(15).sort_values(ascending = True).plot(kind='barh')
+plt.xlabel('Importance')
+plt.title('Feature Importance', fontsize =15);
+
+## Model Predicting
+# Load test data
+test = pd.read_csv('data/test_set.csv', parse_dates=[3])
+tube = pd.read_csv("data/tube.csv")
+bom = pd.read_csv("bom_final.csv", index_col=0)
+
+test.head()
+
+test.info()
+
+test = pd.merge(test, tube, on ='tube_assembly_id')
+
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+
+test['bracket_pricing'] = le.fit_transform(test.bracket_pricing)
+test['end_a_1x'] = le.fit_transform(test.end_a_1x)
+test['end_a_2x'] = le.fit_transform(test.end_a_2x)
+test['end_x_1x'] = le.fit_transform(test.end_x_1x)
+test['end_x_2x'] = le.fit_transform(test.end_x_2x)
+
+end_form = pd.read_csv('data/tube_end_form.csv')
+
+# Lable encode 'forming' column to 0 or 1
+end_form['forming'] = le.fit_transform(end_form.forming)
+
+# Then, map 'forming' value onto 'end_a' and 'end_x' columns
+test['end_a'] = test['end_a'].map(end_form.set_index('end_form_id')['forming']) 
+test['end_x'] = test['end_x'].map(end_form.set_index('end_form_id')['forming'])
+
+# Fill null value with 0, as no ends means no forming
+test.end_a.fillna(0, inplace=True)
+test.end_x.fillna(0, inplace=True)
+
+test['year'] = test.quote_date.dt.year
+test['month'] = test.quote_date.dt.month
+test['dayofyear'] = test.quote_date.dt.dayofyear
+test['dayofweek'] = test.quote_date.dt.dayofweek
+test['day'] = test.quote_date.dt.day
+
+# copy id for submission later on
+ids = test.id 
+
+# Drop useless features from test for analysis
+test = test.drop(['id', 'quote_date'], axis = 1)
+
+test = pd.merge(test, bom, on ='tube_assembly_id')
+test.info()
